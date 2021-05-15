@@ -25,11 +25,11 @@ app.post("/api", async (req, res) => {
     const apiUrl = `https://api.meaningcloud.com/sentiment-2.1?key=${apiKey}&url=${url}&lang=en`;
     const { data } = await axios.post(apiUrl);
     const result = {
-      score_tag: data.score_tag,
       irony: data.irony,
-      confidence: data.confidence,
       agreement: data.agreement,
       subjectivity: data.subjectivity,
+      confidence: data.confidence,
+      score_tag: data.score_tag,
     };
     res.send(result);
   } catch (err) {
